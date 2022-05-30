@@ -34,10 +34,7 @@ app.use(compress())
 // is not an allowed source of script in the following 
 // Content Security Policy directive: "script-src 'self'
 // Modify defaults based on https://www.npmjs.com/package/helmet
-app.use(helmet.contentSecurityPolicy({
-    reportOnly: true
-})
-)
+app.use(helmet())
 app.use(cors())
 
 app.use('/', userRoutes)

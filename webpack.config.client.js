@@ -5,7 +5,11 @@ const webpack = require("webpack")
 const config = {
     name: "browser",
     mode: "development",
-    devtool: 'eval-source-map',
+    // eval-source-map devtool may cause CSP issue
+    // https://github.com/webpack/webpack/issues/4899
+    // https://webpack.js.org/configuration/devtool/
+    // devtool: 'eval-source-map',
+    devtool: false,
     entry: [
         'webpack-hot-middleware/client?reload=true',
         path.join(CURRENT_WORKING_DIR, 'client/main.js')
